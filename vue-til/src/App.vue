@@ -7,15 +7,15 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
-import AppHeader from './components/common/AppHeader.vue';
+// import AppHeader from './components/common/AppHeader.vue';
 
-var a = 'hi';
+// var a = 'hi';
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    AppHeader,
+    // AppHeader,
   },
   created() {
     console.log('hi');
