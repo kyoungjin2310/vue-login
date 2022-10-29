@@ -1,18 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import LoginPage from '@/views/LoginPage.vue';
-import SignupPage from '@/views/SignupPage.vue';
 Vue.use(VueRouter);
 
 export default new VueRouter({
   routes: [
     {
       path: '/login',
-      component: LoginPage,
+      //코드 스플리팅 -> 페이지가많을 경우에 해당페이지만 가져오기
+      component: () => import('@/views/LoginPage.vue'),
     },
     {
       path: '/signup',
-      component: SignupPage,
+      component: () => import('@/views/SignupPage.vue'),
     },
   ],
 });
