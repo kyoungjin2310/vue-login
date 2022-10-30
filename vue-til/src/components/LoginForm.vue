@@ -35,6 +35,7 @@ export default {
         this.logMessage = `${data.user.username} 님 환영합니다`;
       } catch (error) {
         console.log(error.response);
+        this.logMessage = error.response.data;
       } finally {
         //finally - try, catch 공통일때 사용
         this.initForm();
