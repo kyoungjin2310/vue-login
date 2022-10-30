@@ -33,9 +33,11 @@ export default {
         const { data } = await loginUser(userData);
         console.log(data.user.username);
         this.logMessage = `${data.user.username} 님 환영합니다`;
-        this.initForm();
       } catch (error) {
         console.log(error.response);
+      } finally {
+        //finally - try, catch 공통일때 사용
+        this.initForm();
       }
     },
     initForm() {
