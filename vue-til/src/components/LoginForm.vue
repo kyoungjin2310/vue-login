@@ -57,6 +57,11 @@ export default {
           password: this.password,
         };
         const { data } = await loginUser(userData);
+
+        //router 이동'
+        //https://router.vuejs.org/guide/essentials/navigation.html
+        this.$router.push('/main');
+
         console.log(data.user.username);
         this.logMessage = `${data.user.username} 님 환영합니다`;
         // this.initForm();
