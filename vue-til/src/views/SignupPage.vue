@@ -1,14 +1,17 @@
 <template>
   <div>
     <h1>회원 가입 페이지</h1>
-    <signup-form></signup-form>
+    <SignupForm></SignupForm>
   </div>
 </template>
 
 <script>
-import SignupForm from '../components/SignupForm.vue';
+import SignupForm from '@/components/SignupForm.vue';
+
 export default {
-  components: { SignupForm },
+  components: {
+    SignupForm,
+  },
 };
 </script>
 
