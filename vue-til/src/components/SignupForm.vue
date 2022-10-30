@@ -58,7 +58,7 @@
 
 <script>
 import { registerUser } from '@/api/index';
-import { validateEmail, validatePassword } from '@/utils/validations';
+import { validateEmail, validatePassword } from '@/utils/validation';
 import PageHeader from './common/PageHeader.vue';
 export default {
   components: {
