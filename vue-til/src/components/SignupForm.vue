@@ -19,6 +19,7 @@
 
 <script>
 import { registerUser } from '@/api/index';
+import { validateEmail } from '@/utils/validations';
 
 export default {
   data() {
@@ -30,6 +31,16 @@ export default {
       // log
       logMessage: '',
     };
+  },
+  //computed - data 실시간 연산
+  computed: {
+    isUsernameValid() {
+      return validateEmail(this.username);
+    },
+    // isFormValid() {
+    //   // validateEmail
+    //   return true;
+    // },
   },
   methods: {
     async submitForm() {
