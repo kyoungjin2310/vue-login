@@ -11,6 +11,7 @@
       />
     </form>
     <button type="submit">회원 가입</button>
+    <p>{{ logMessage }}</p>
   </div>
 </template>
 
@@ -43,6 +44,7 @@ export default {
       username: '',
       password: '',
       nickmame: '',
+      logMessage: '',
     };
   },
   components: { InputItem },
@@ -56,6 +58,7 @@ export default {
       };
       const { data } = await registerUser(userData);
       console.log(data);
+      this.logMessage = `${data.username}님 가입 되셨습니다.`;
       this.initForm();
     },
   },
