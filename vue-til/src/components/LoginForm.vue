@@ -60,8 +60,8 @@ export default {
 
         //router 이동'
         //https://router.vuejs.org/guide/essentials/navigation.html
+        this.$store.commit('setToken', data.token);
         this.$store.commit('setUsername', data.user.username);
-        console.log(data.user.username);
         this.logMessage = `${data.user.username} 님 환영합니다`;
         this.$router.push('/main');
       } catch (error) {
