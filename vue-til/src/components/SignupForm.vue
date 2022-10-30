@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit="submitFrom">
+    <form @submit.prevent="submitFrom">
       <input-item
         v-for="item in inputList"
         :key="item.id"
