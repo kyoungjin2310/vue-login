@@ -10,12 +10,13 @@
         :v-model="item.vModel"
       />
     </form>
-    <button type="submit">login</button>
+    <button type="submit">회원 가입</button>
   </div>
 </template>
 
 <script>
 import InputItem from './common/InputItem.vue';
+import { registerUser } from '@/api/index';
 export default {
   data() {
     return {
@@ -46,9 +47,22 @@ export default {
   },
   components: { InputItem },
   methods: {
-    submitFrom() {
+    async submitFrom() {
       console.log('220');
+      const userData = {
+        username: this.username,
+        password: this.password,
+        nickmame: this.nickmame,
+      };
+      const { data } = await registerUser(userData);
+      console.log(data);
+      this.initForm();
     },
+  },
+  initForm() {
+    this.username = '';
+    this.password = '';
+    this.nickmame = '';
   },
 };
 </script>

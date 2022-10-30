@@ -8,8 +8,6 @@
 </template>
 
 <script>
-// import Demo from '@/demo/basic/Demo'
-
 export default {};
 </script>
 
