@@ -46,7 +46,9 @@ export default {
   },
   components: { InputItem },
   methods: {
-    submitFrom() {},
+    submitFrom() {
+      console.log('220');
+    },
   },
 };
 </script>

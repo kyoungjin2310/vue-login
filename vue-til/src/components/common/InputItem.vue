@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input :type="inputType" :id="inputId" />
     <label :for="inputId">{{ inputText }}</label>
+    <input :type="inputType" :id="inputId" />
   </div>
 </template>
 
