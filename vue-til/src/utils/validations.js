@@ -6,4 +6,7 @@ const validateEmail = (email) => {
     );
 };
 
-export { validateEmail };
+function validatePassword(value) {
+  return value.length >= 8;
+}
+export { validateEmail, validatePassword };
