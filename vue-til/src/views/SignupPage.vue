@@ -1,4 +1,8 @@
-<template> <div></div></template>
+<template>
+  <div>
+    signup
+  </div>
+</template>
 
 <script>
 export default {};

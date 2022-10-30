@@ -19,7 +19,6 @@ module.exports = {
         printWidth: 80,
         bracketSpacing: true,
         arrowParens: 'always',
-        usePrettierrc: false,
       },
     ],
   },
