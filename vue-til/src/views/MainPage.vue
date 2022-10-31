@@ -3,7 +3,12 @@
     <div class="main list-container contents">
       <h1 class="page-header">Today I Learned</h1>
       <ul>
-        <li v-for="postItem in postItems" :key="postItem._id">
+        <post-list-item
+          v-for="postItem in postItems"
+          :key="postItem._id"
+          :item="postItem"
+        ></post-list-item>
+        <!-- <li v-for="postItem in postItems" :key="postItem._id">
           <div class="post-title">
             {{ postItem.title }}
           </div>
@@ -13,7 +18,7 @@
           <div class="post-title">
             {{ postItem.createdAt }}
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -21,7 +26,9 @@
 
 <script>
 import { fetchPosts } from '@/api/index';
+import PostListItem from '../components/posts/PostListItem.vue';
 export default {
+  components: { PostListItem },
   data() {
     return {
       postItems: [],
@@ -29,8 +36,13 @@ export default {
   },
   methods: {
     async fetchData() {
-      const { data } = await fetchPosts();
-      this.postItems = data.posts;
+      try {
+        const { data } = await fetchPosts();
+        this.postItems = data.posts;
+        console.log(data.posts);
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
   created() {
