@@ -30,9 +30,7 @@
 </template>
 
 <script>
-import { loginUser } from '@/api/index';
 import { validateEmail } from '@/utils/validation';
-import { saveAuthToCookie, saveUserToCookie } from '@/utils/cookies';
 export default {
   data() {
     return {
@@ -56,15 +54,10 @@ export default {
           username: this.username,
           password: this.password,
         };
-        const { data } = await loginUser(userData);
-
+        //async여서 await이 붙고, 비동기 처리 끝나고 홈으로 이동해야되기 때문
+        await this.$store.dispatch('LOGIN', userData);
         //router 이동'
         //https://router.vuejs.org/guide/essentials/navigation.html
-        this.$store.commit('setToken', data.token);
-        this.$store.commit('setUsername', data.user.username);
-        this.logMessage = `${data.user.username} 님 환영합니다`;
-        saveAuthToCookie(data.token);
-        saveUserToCookie(data.user.username);
         this.$router.push('/main');
       } catch (error) {
         // 에러 핸들링할 코드

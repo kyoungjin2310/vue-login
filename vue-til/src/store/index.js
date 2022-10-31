@@ -1,7 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getAuthFromCookie, getUserFromCookie } from '@/utils/cookies';
-
+import {
+  getAuthFromCookie,
+  getUserFromCookie,
+  saveAuthToCookie,
+  saveUserToCookie,
+} from '@/utils/cookies';
+import { loginUser } from '@/api/index';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -23,6 +28,17 @@ export default new Vuex.Store({
     },
     setToken(state, token) {
       state.token = token;
+    },
+  },
+  actions: {
+    //컴포넌트에 로직이 많이 보이면 안됨 -> actions 이용
+    async LOGIN({ commit }, userData) {
+      const { data } = await loginUser(userData);
+      commit('setToken', data.token);
+      commit('setUsername', data.user.username);
+      saveAuthToCookie(data.token);
+      saveUserToCookie(data.user.username);
+      return data;
     },
   },
 });
