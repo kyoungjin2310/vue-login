@@ -21,9 +21,14 @@ function loginUser(userData) {
   return instance.post('login', userData);
 }
 
+//학습 노트 데이터를 생성하는 api
+function createPost(postData) {
+  return instance.post('post', postData);
+}
+
 //학습 노트 데이터를 조회하는 api
 function fetchPosts() {
   return instance.get('posts');
 }
 
-export { registerUser, loginUser, fetchPosts };
+export { registerUser, loginUser, fetchPosts, createPost };

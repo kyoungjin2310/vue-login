@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { createPost } from '@/api/index';
 export default {
   data() {
     return {
@@ -29,8 +30,17 @@ export default {
     };
   },
   methods: {
-    submitForm() {
-      console.log;
+    async submitForm() {
+      try {
+        const response = await createPost({
+          title: this.title,
+          contents: this.contents,
+        });
+        console.log(response);
+      } catch (error) {
+        //console로 찍으면 나옴
+        console.log(error.response.data.message);
+      }
     },
   },
 };
