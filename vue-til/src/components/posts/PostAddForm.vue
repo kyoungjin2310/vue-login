@@ -17,6 +17,9 @@
       </div>
       <button type="submit" class="btn">Create</button>
     </form>
+    <p class="log">
+      {{ logMessage }}
+    </p>
   </div>
 </template>
 
@@ -27,6 +30,7 @@ export default {
     return {
       title: '',
       contents: '',
+      logMessage: '',
     };
   },
   methods: {
@@ -40,6 +44,7 @@ export default {
       } catch (error) {
         //console로 찍으면 나옴
         console.log(error.response.data.message);
+        this.logMessage = error.response.data.message;
       }
     },
   },
