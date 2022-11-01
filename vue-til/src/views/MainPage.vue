@@ -11,6 +11,10 @@
         ></post-list-item>
       </ul>
     </div>
+    <!-- icon 활용 - https://ionic.io/ionicons/usage -->
+    <router-link to="/add" class="create-button">
+      <i class="ion-md-add"></i>
+    </router-link>
   </div>
 </template>
 
