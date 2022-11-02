@@ -24,6 +24,7 @@
           로그인
         </button>
       </form>
+      <check-box :inputId="test" :inputHtml="txt" />
       <p class="log">{{ logMessage }}</p>
     </div>
   </div>
@@ -31,7 +32,9 @@
 
 <script>
 import { validateEmail } from '@/utils/validation';
+import CheckBox from './common/CheckBox.vue';
 export default {
+  components: { CheckBox },
   data() {
     return {
       // form values
@@ -39,6 +42,8 @@ export default {
       password: '',
       // log
       logMessage: '',
+      txt: '<p>test<p>',
+      test: 'test',
     };
   },
   computed: {
