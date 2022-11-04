@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { registerUser } from '@/api/index';
+import { registerUser } from '@/api/auth';
 import { validateEmail, validatePassword } from '@/utils/validation';
 import PageHeader from './common/PageHeader.vue';
 export default {
