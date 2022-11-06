@@ -1,7 +1,7 @@
 <template>
   <div class="contents">
     <div class="form-wrapper form-wrapper-sm">
-      <PageHeader>Sign Up</PageHeader>
+      <AppHeader>Sign Up</AppHeader>
       <form @submit.prevent="registerUser" class="form">
         <div>
           <label for="username">ID</label>
@@ -59,10 +59,10 @@
 <script>
 import { registerUser } from '@/api/auth';
 import { validateEmail, validatePassword } from '@/utils/validation';
-import PageHeader from './common/PageHeader.vue';
+import AppHeader from './common/AppHeader.vue';
 export default {
   components: {
-    PageHeader,
+    AppHeader,
   },
   data() {
     return {
