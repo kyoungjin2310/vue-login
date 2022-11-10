@@ -22,4 +22,9 @@ function deletePost(postId) {
   return posts.delete(postId);
 }
 
-export { createPost, fetchPosts, deletePost, fetchPost };
+//학습 노트 데이터를 수정하는 api
+function editPost(postId, postData) {
+  return posts.put(postId, postData);
+}
+
+export { createPost, fetchPosts, deletePost, fetchPost, editPost };
