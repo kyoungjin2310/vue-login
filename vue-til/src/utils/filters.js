@@ -1,4 +1,5 @@
 //filter.js 전역 data를 filter(함수로) 적용해서 data 보기좋게 변경하는 방법
+//https://v2.vuejs.org/v2/guide/filters.html?redirect=true#ad
 export function formatDate(value) {
   const date = new Date(value);
   const year = date.getFullYear();
