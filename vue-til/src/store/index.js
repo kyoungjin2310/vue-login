@@ -30,6 +30,9 @@ export default new Vuex.Store({
     setToken(state, token) {
       state.token = token;
     },
+    clearToken(state) {
+      state.token = '';
+    },
   },
   actions: {
     //컴포넌트에 로직이 많이 보이면 안됨 -> actions 이용
