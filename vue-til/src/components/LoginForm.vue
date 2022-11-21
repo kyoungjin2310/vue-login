@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { validateEmail } from '@/utils/validation';
+import { email } from '@/mixin/mixins';
 export default {
   data() {
     return {
@@ -41,9 +41,10 @@ export default {
       logMessage: '',
     };
   },
+  mixins: [email],
   computed: {
     isUsernameValid() {
-      return validateEmail(this.username);
+      return this.isEmailValid(this.username);
     },
   },
   methods: {
