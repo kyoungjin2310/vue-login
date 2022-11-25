@@ -6,7 +6,18 @@ const validateEmail = (email) => {
     );
 };
 
-function validatePassword(value) {
-  return value.length >= 8;
-}
-export { validateEmail, validatePassword };
+const validatePassword = (pw) => {
+  return /^(?=.*[a-z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,16}$/.test(
+    pw,
+  );
+};
+
+const validatePwConfirm = (pw, pw_) => {
+  if (pw !== '' && pw_ !== '') {
+    return pw === pw_;
+  } else {
+    return false;
+  }
+};
+
+export { validateEmail, validatePassword, validatePwConfirm };

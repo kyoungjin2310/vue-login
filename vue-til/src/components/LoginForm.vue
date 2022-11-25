@@ -14,6 +14,7 @@
         <div>
           <label for="password">pw:</label>
           <input id="password" type="text" v-model="password" />
+          <input id="password" type="text" v-model="test" />
         </div>
         <button
           :disabled="!isUsernameValid || !password"
@@ -24,12 +25,16 @@
           로그인
         </button>
       </form>
-      <p class="log">{{ logMessage }}</p>
+      <p class="log">
+        {{ isPwValid || '비밀번호: 숫자, 특수문자, 영어' }}
+      </p>
+      <p>{{ isPwConfirm || '비밀번호 안같음' }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import { validatePassword, validatePwConfirm } from '@/utils/validation';
 import { email } from '@/mixin/mixins';
 export default {
   data() {
@@ -37,6 +42,7 @@ export default {
       // form values
       username: '',
       password: '',
+      test: '',
       // log
       logMessage: '',
     };
@@ -45,6 +51,13 @@ export default {
   computed: {
     isUsernameValid() {
       return this.isEmailValid(this.username);
+    },
+    isPwValid() {
+      console.log(this.password);
+      return validatePassword(this.password);
+    },
+    isPwConfirm() {
+      return validatePwConfirm(this.password, this.test);
     },
   },
   methods: {
