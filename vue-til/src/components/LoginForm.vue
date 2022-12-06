@@ -26,7 +26,7 @@
         </button>
       </form>
       <p class="log">
-        {{ isPwValid || '비밀번호: 숫자, 특수문자, 영어' }}
+        {{ isUsernameValid || 'test' }}
       </p>
       <p>{{ isPwConfirm || '비밀번호 안같음' }}</p>
     </div>
