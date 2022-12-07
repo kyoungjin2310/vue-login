@@ -14,50 +14,37 @@
         <div>
           <label for="password">pw:</label>
           <input id="password" type="text" v-model="password" />
-          <input id="password" type="text" v-model="test" />
         </div>
         <button
-          :disabled="!isUsernameValid || !password"
+          :disabled="!isUsernameValid || !isPwValid"
           type="submit"
           class="btn"
-          :class="!isUsernameValid || !password ? 'disabled' : null"
+          :class="!isUsernameValid || !isPwValid ? 'disabled' : null"
         >
           로그인
         </button>
       </form>
-      <p class="log">
-        {{ isUsernameValid || 'test' }}
-      </p>
-      <p>{{ isPwConfirm || '비밀번호 안같음' }}</p>
+      <p class="log">{{ logMessage }}</p>
     </div>
   </div>
 </template>
 
 <script>
-import { validatePassword, validatePwConfirm } from '@/utils/validation';
-import { email } from '@/mixin/mixins';
+import { validateEmail, validatePassword } from '@/utils/validation';
 export default {
   data() {
     return {
-      // form values
+      logMessage: '',
       username: '',
       password: '',
-      test: '',
-      // log
-      logMessage: '',
     };
   },
-  mixins: [email],
   computed: {
     isUsernameValid() {
-      return this.isEmailValid(this.username);
+      return validateEmail(this.username);
     },
     isPwValid() {
-      console.log(this.password);
       return validatePassword(this.password);
-    },
-    isPwConfirm() {
-      return validatePwConfirm(this.password, this.test);
     },
   },
   methods: {
@@ -88,7 +75,6 @@ export default {
   },
 };
 </script>
-
 <style>
 .btn {
   color: white;
